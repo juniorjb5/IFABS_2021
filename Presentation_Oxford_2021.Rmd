@@ -353,7 +353,7 @@ We find internal determinants, such as the structure and size of assets and the 
 
 ]
 
-This group of factors includes fundamental macroeconomic determinants and market factors, such as competence and market share. The profitability of banks is affected by the economic cycle, short-term interest rates, inflation expectations, credit risk, and the effect of the structure of the loan portfolio on profits.
+`\\(X_i\\)` This group of factors includes fundamental macroeconomic determinants and market factors, such as competence and market share. The profitability of banks is affected by the economic cycle, short-term interest rates, inflation expectations, credit risk, and the effect of the structure of the loan portfolio on profits.
 
 
 
