@@ -353,7 +353,7 @@ We find internal determinants, such as the structure and size of assets and the 
 
 ]
 
-$X_i$ This group of factors includes fundamental macroeconomic determinants and market factors, such as competence and market share. The profitability of banks is affected by the economic cycle, short-term interest rates, inflation expectations, credit risk, and the effect of the structure of the loan portfolio on profits.
+This group of factors includes fundamental macroeconomic determinants and market factors, such as competence and market share. The profitability of banks is affected by the economic cycle, short-term interest rates, inflation expectations, credit risk, and the effect of the structure of the loan portfolio on profits.
 
 
 
@@ -456,19 +456,11 @@ We provide a ranking of banks regarding the sensitivity of our estimated factors
 .font120[
 We adapt our exposition form `Bai & Ng (2002)` and `Bai & Ng (2008)`. Let `\\(y_{it}\\)` be the observed profitability data (either ROE, ROA, and EBITDA) for the i-th unit of the cross-section (i.e., bank) at time t, for `\\(i=1,\ldots,N\\)` and `\\(t=1,\ldots,T.\\)` Consider the following model:
 
-<div style="line-height:5%;">
-    <br>
-</div>
 
-
-\\[y_{it}=\lambda_i^\prime\ F_t+e_{it}\\]
+$$y_{it}=\lambda_i^\prime\ F_t+e_{it}$$
 
 \\[y_{it}=C_{it}+e_{it},\\]
 
-
-<div style="line-height:5%;">
-    <br>
-</div>
 
 
 where `\\(F_t\\)` is a vector of common factors, `\\(e_{it}\\)` is the idiosyncratic component of `\\(y_{it}\\)` and `\\(\lambda_i\\)` is a vector of factor loads associated with `\\(F_t\\)`. This is a vector of weights that unit `\\(i\\)` places on the corresponding `\\(r\\)` static common factors `\\(F_t\\)`. The term `\\(C_{it}=\lambda_iF_t\\)` refers to the common component of the model.
