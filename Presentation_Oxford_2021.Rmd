@@ -1,0 +1,1849 @@
+---
+title: "Commonality, macroeconomic factors and banking profitability"
+subtitle: "IFABS 2021 - OXFORD"
+author: "Orlando Joaqui-Barandica **|** Diego F. Manotas-Duque **|** Jorge M. Uribe"
+date: "September 13-15, 2021"
+output: 
+  xaringan::moon_reader:
+    css:
+      - default
+      - mtheme.css
+      - fonts_mtheme.css
+      - sydney.css
+      - rladies
+    nature: 
+      ratio: 16:9
+      beforeInit: "macros.js"
+      highlightStyle: github
+      highlightLines: true
+      countIncrementalSlides: false
+---
+
+
+
+```{r setup, include=FALSE}
+library(knitr)                              # paquete que trae funciones utiles para R Markdown
+library(tidyverse)                          # paquete que trae varios paquetes comunes en el tidyverse
+library(datos)                              # paquete que viene con datos populares traducidos al español :)
+library(shiny)
+# opciones predeterminadas
+knitr::opts_chunk$set(echo = FALSE,         # FALSE: los bloques de código NO se muestran
+                      dpi = 300,            # asegura gráficos de alta resolución
+                      warning = FALSE,      # los mensajes de advertencia NO se muestran
+                      error = FALSE)        # los mensajes de error NO se muestran
+
+
+options(htmltools.dir.version = FALSE)
+
+```
+
+```{r xaringan-panelset, echo=FALSE}
+xaringanExtra::use_panelset()
+```
+
+
+class: clear
+
+
+.pull-left[
+
+.center[
+
+<br><br>
+
+```{r echo=FALSE, out.width = "75%" }
+knitr::include_graphics("img/logos.png")
+```
+
+]
+]
+
+
+.pull-right[
+
+
+.center[
+<img style="border-radius: 50%;" src="img/avatar.png"
+width="100px" href="https://www.joaquibarandica.com"
+/>
+
+[PhD. Student. Orlando Joaqui-Barandica](https://www.joaquibarandica.com) <br/>
+Universidad del Valle
+]
+
+
+.center[
+<img style="border-radius: 50%;" src="img/avatar2.png"
+width="100px"
+/>
+
+[PhD. Diego F. Manotas-Duque](http://industrial.univalle.edu.co/profesores/diego-fernando-manotas-duque) <br>
+Universidad del Valle
+]
+
+.center[
+<img style="border-radius: 50%;" src="img/avatar3.png"
+width="100px"
+/>
+
+[PhD. Jorge M. Uribe](https://jorgemuribe.com/) <br>
+Universitat Oberta de Catalunya
+]
+
+]
+
+
+???
+
+•	Diapositiva 1 - Saludo
+
+Good afternoon everyone, it is a pleasure to be here and share with you virtually.
+My name is Orlando Joaqui Barandica, I am a doctoral student at Universidad del Valle in Colombia.
+Today I will talk about Commonality, macroeconomic factors and bank profitability. In advance, I apologize for my English, I am in the process of strengthening my speaking and my listening.
+
+
+•	Diapositiva 2 – Autores
+
+This research is carried out in conj(y)unction with my thesis supervisors, Professor Diego Manotas from the Universidad del Valle, and Professor Jorge M. Uribe from the Universidad Oberta de Cataluña.
+
+
+
+
+---
+
+class: contenido
+
+<div class="my-logo-right"></div>
+
+
+# Content
+
+
+.pull-left[
+
+</br>
+
+###  `r icon::fa("circle-notch", animate = "spin")` [Introduction](#Introduction)
+
+
+###  `r icon::fa("circle-notch", animate = "spin")` [Bank profitability literature](#Literature)
+
+
+###  `r icon::fa("circle-notch", animate = "spin")` [Methodology & Data](#Methodology)
+
+
+###  `r icon::fa("circle-notch", animate = "spin")` [Results](#Results)
+
+
+###  `r icon::fa("circle-notch", animate = "spin")` [Conclusion](#Conclusion)
+
+]
+
+.pull.right[
+
+]
+
+
+???
+
+•	Diapositiva 3 – Contenido
+
+This is the content that we will have today: We will start with a short introduction to the research topic.
+
+Later I will present some consulted works on bank profitability. We will continue with the methodology carried out in the empirical work and we will end with the results and conclusions of the investigation.
+
+
+
+---
+
+name: Introduction
+
+class: inverse, mline, center, middle
+<div class="my-logo-center"></div>
+
+
+
+# Introduction
+
+
+
+---
+
+<div class="my-logo-right"></div>
+
+# Introduction
+
+<br><br>
+
+.font130[
+* The `profitability of banks` is under intense and constant scrutiny by regulators and central banks because it is directly related to the soundness of financial institutions and, therefore, to financial stability and the probability of systemic risk materialization.]
+
+<br>
+
+.font130[
+* Profitability is a targeted indicator by managers and CEOs who determine `the optimal combinations of operating assets and capital sources`, hoping to increase a bank’s value and its return on investment. ]
+
+
+???
+
+•	Diapositiva 4 - 5 – Introducción
+
+Understanding the sources of profitability in the banking sector is of utmost importance to both policy makers and professionals in the banking sector.
+
+On the one hand, the profitability of banks, as it is directly related to the soundness of financial institutions, implies a relationship with financial stability and the probability of systemic risk, the profitability is then under intense surveillance (surveilens) by regulators and central banks.
+
+On the other hand, profitability is also an objective indicator of managers and CEOs who determining optimal combinations of operating assets and sources of capital, hoping to increase the value of a bank and its return on investment.
+
+
+
+---
+
+
+
+<div class="my-logo-right"></div>
+
+
+# Introduction
+
+.left-column[
+
+## In practice, 
+
+Naturally, profitability answers to both sides of the narrative.
+]
+
+
+.right-column[
+
+## Idiosyncratic characteristics vs. Common market forces
+
+.font120[
+There is a lively debate in the literature about whether profitability in banks is mainly due to idiosyncratic characteristics of financial institutions, such as `size`, `scope`, `capitalization`, `asset quality`, `efficiency`, and the `business model`, or, in contrast, is more a reflection of underlying common market forces, over which bank managers lack any kind of influence, such as `short-term policy rates`, `long-term rates`, `general financial conditions`, or more broadly speaking, `cycles in economic activity`.]
+
+]
+
+
+???
+
+•	Diapositiva 6 – Introducción
+
+Now, this has opened up a lively debate in the literature about whether bank profitability is primarily due to idiosyncratic characteristics of financial institutions or common market forces.
+
+Naturally, profitability responds to both sides of the narrative. Since it is inevitable that characteristics of the bank influence the levels of profitability of the bank.
+
+On the other hand, it is also essential that bank profitability is affected by a reflection of the underlying common market forces, over which bank managers have no influence whatsoever, such as short-term policy rates, interest rates long-term, general financial conditions or, more generally, cycles of economic activity.
+
+
+---
+
+
+
+<div class="my-logo-right"></div>
+
+
+# Introduction
+
+
+.center[
+
+.font150[**But...**]
+
+<br>
+
+.font140[**... the key point is the degree to which one can rely on each side to explain the banking system performance**]
+
+]
+
+<hr>
+
+<br>
+
+.font120[
+`r anicon::faa("angle-double-right", animate = "passing")` We answer how much of the profitability of the largest banks in the US banking system can be explained by common underlying market forces, which are not related to idiosyncratic characteristics.
+]
+
+
+<br>
+
+.font120[
+`r anicon::faa("angle-double-right", animate = "passing")` We adopt an eclectic perspective based on `dynamic factor models`, often used in machine learning asset pricing but novel in the context of our research question.
+]
+
+
+???
+
+•	Diapositiva 7 – Introducción
+
+But ... in this case the key point we have wondered about is the degree to which one can trust each side to explain the performance of the banking system.
+
+In our work, we answer to what extent the profitability of the largest banks in the US banking system can be explained by common underlying market forces, which are not related to idiosyncratic characteristics.
+
+In other words, we have fo(ou)cused on the determinants of bank profitability in the US economy, focusing especially on macroeconomic determinants rather than individual characteristics of banks.
+
+We take an eclectic perspective based on dynamic factor models, which are often used in machine learning asset pricing, but are novel in the context of our research question.
+
+
+
+---
+
+
+name: Literature
+
+class: inverse, mline, center, middle
+<div class="my-logo-center"></div>
+
+
+
+# Bank profitability literature
+
+
+???
+
+Regarding the literature review, we have the following:
+
+
+---
+
+
+<div class="my-logo-right"></div>
+
+# Bank profitability literature
+
+
+.pull-left[
+
+### Internal determinants `r anicon::faa("arrow-alt-circle-down", animate = "falling")`
+
+
+
+
+.font120[
+
+> * Le & Ngo (2020)
+> * Kumar et al., (2021)
+> * Duan & Niu (2020)
+> * Fernandes et al., (2021)
+> * Davydov et al., (2021)
+> * Evans & Haq (2021)
+> * ...
+
+]
+
+We find internal determinants, such as the structure and size of assets and the financial and capital structure of financial institutions. In this same group, internal determinants of operational character are analysed, such as the productivity of the workforce and the number of ATMs and customer service offices.
+
+
+
+]
+
+.pull-right[
+
+### External determinants `r anicon::faa("arrow-alt-circle-down", animate = "falling")`
+
+
+
+.font120[
+
+> * Kanas et al., (2012)
+> * Martins et al., (2019)
+> * Alessandri & Nelson (2015)
+> * Molyneux et al., (2019)
+> * Borio et al., 2017
+> * Detragiache et al., 2018
+> * ...
+
+]
+
+This group of factors includes fundamental macroeconomic determinants and market factors, such as competence and market share. The profitability of banks is affected by the economic cycle, short-term interest rates, inflation expectations, credit risk, and the effect of the structure of the loan portfolio on profits.
+
+
+
+]
+
+
+???
+
+•	Diapositiva 8 - 9 – Literatura
+
+It is possible to identify in the literature two lines of analysis related to the determinants of the performance of financial institutions: Internal determinants and external determinants.
+
+Among the internal determinants, authors such as Le & Ngo, Kumar, Duan, Fernandes, Davydov, Evans, among others, highlight determinants of profitability such as the structure and size of the assets, as well as the financial and capital structure. Among operational aspects, for example, the number of ATMs and customer service offices are highlighted.
+
+Authors such as Kanas, Martins, Alessandri, Molyneaux, Borio, among others, highlight external determinants of the bank's profitability in their research. The authors show external aspects such as the economic cycle, short-term interest rates, inflation expectations, among others.
+Our goal will be to fill a significant gap in the literature by exploring potential sources of profitability from a big data perspective. Our approach builds-on and expands-on knowledge from the previous literature linking bank profitability with macroeconomics.
+
+
+
+
+---
+
+name: Methodology
+
+class: inverse, mline, center, middle
+<div class="my-logo-center"></div>
+
+
+
+# Methodology & Data
+
+???
+
+About the methodology and the data, we have:
+
+
+---
+
+<div class="my-logo-right"></div>
+
+
+# Methodology
+
+<br>
+
+.font120[
+
+> `r emo::ji("one")` `Dynamic factor models` as described by Bai & Ng (2002), which are used to explain the unobservable market-wide forces that determine banking profitability. 
+
+<div style="line-height:5%;">
+    <br>
+</div>
+
+
+> `r emo::ji("two")` `Statistical criteria` were used to determine the number of factors that suffice to construct our models. 
+
+<div style="line-height:5%;">
+    <br>
+</div>
+
+
+> `r emo::ji("three")` Factor estimation method based on `regularized PCA` (Josse & Husson , 2012). 
+
+<div style="line-height:5%;">
+    <br>
+</div>
+
+
+> `r emo::ji("four")` `Factor’s interpretability` using the marginal coefficient of determination `\\(R_{Adj}^{2}\\)` from linear regressions of the estimated banking factors on a comprehensive set of macroeconomic series.
+]
+
+
+???
+
+•	Diapositiva 10 - 11 – Metodología
+
+While it is a fact already documented in the literature and well known to central banks and professionals that banking is a highly cyclical industry and therefore dominated by underlying macro market forces, which determine most of the dynamics of a bank's performance. We offer a way to quantify the extent to which this occurs.
+
+Our approach allows us to directly quantify how much of the profitability of US banks can be explained by some common factors that all financial institutions are directly exposed to.
+
+We structure four main stages. 
+We estimate a model by dynamic factors, select the optimal number of factors, and estimate the factors based on the regularized principal components analysis. 
+We then interpret our estimated factors and finally, 
+We provide a ranking of banks regarding the sensitivity of our estimated factors.
+
+
+---
+
+<div class="my-logo-right"></div>
+
+
+# Dynamic factor models
+
+
+<br>
+
+.font120[
+We adapt our exposition form `Bai & Ng (2002)` and `Bai & Ng (2008)`. Let $y_{it}$ be the observed profitability data (either ROE, ROA, and EBITDA) for the i-th unit of the cross-section (i.e., bank) at time t, for $i=1,\ldots,N$ and $t=1,\ldots,T.$ Consider the following model:
+
+<br>
+
+$$y_{it}=\lambda_i^\prime\ F_t+e_{it}$$
+
+$$y_{it}=C_{it}+e_{it},$$
+<br>
+
+where $F_t$ is a vector of common factors, $e_{it}$ is the idiosyncratic component of $y_{it}$ and $\lambda_i$ is a vector of factor loads associated with $F_t$. This is a vector of weights that unit $i$ places on the corresponding $r$ static common factors $F_t$. The term $C_{it}=\lambda_iF_t$ refers to the common component of the model.
+
+]
+
+???
+
+•	Diapositiva 12 – Modelo Factores Dinamicos
+
+We use a dynamic factor model to explain the unobservable market-wide forces that determine bank profitability.
+
+Consider the following model, where the response variable is the profitability data, either ROE, ROA and EBITDA for each bank in the cross section at the moment T. 
+
+F is the vector of common factors and e is the idiosyncratic component.
+
+
+---
+
+<div class="my-logo-right"></div>
+
+# Selecting the number of factors
+
+<br>
+
+.font120[
+The number of optimal factors $\hat{k}$ is obtained from the estimation of the corresponding factor loadings that accompany the observed factors, which can be consistently estimated from $\hat{k}=\arg{{min}_{0\le k\le k m a x\ }PC(k)}$ with $r\le kmax$. Let:
+
+<div style="line-height:5%;">
+    <br>
+</div>
+
+
+
+$$PC\left(k\right)=V\left(k,{\hat{F}}^k\right)+kg\left(N,T\right),$$
+<div style="line-height:5%;">
+    <br>
+</div>
+
+
+where `\\(PC\left(k\right)\\)` is the loss function. It is used to estimate `\\(\hat{k}\\)`, where `\\(g\left(N,T\right)\\)` is an overfitting penalty, `\\({\hat{F}}^k\\)` is the matrix of `\\(k\\)` estimated factors and `\\(V\left(k,{\hat{F}}^k\right)\\)` denotes the sum of squared residuals
+
+<div style="line-height:5%;">
+    <br>
+</div>
+
+
+<div>
+$$
+V\left(k,{\hat{F}}^k\right)=\min_{\Lambda}{\frac{1}{NT}}\sum_{i=1}^{N}\sum_{t=1}^{T}{{{(X}_{it}-\lambda_i^{k^\prime}{\hat{F}}_t^k)}^2}
+$$
+</div>
+
+]
+
+
+???
+
+•	Diapositiva 13 – Selecting the number of factors
+
+The number of optimal factors is obtained from the estimation of the corresponding factor loadings that accompany the observed factors.
+
+A strategy frequently used to estimate the optimal number of factors (r) is the graphical representation of the system’s eigenvalues. 
+
+In contrast, a more transparent and quantitative way to determine the number of factors in the system is to balance the cost of adding an additional factor with increasing model complexity, and it was proposed by Bai & Ng (2020) (twenty-twenty)
+
+
+
+---
+
+
+<div class="my-logo-right"></div>
+
+
+# The (regularized) iterative PCA algorithm
+
+<br>
+
+.font120[
+In the estimation of the banking profitability factors $\hat{F}$, we use the method of regularized principal components, due to Josse & Husson (2012). The objective is to determine a subspace that reduces the distances between individuals and their projections in this subspace. This is equivalent to finding two matrices $F_{T\times S}$ and $U_{N\times S}$ of rank $S$, with $S<T$, that provide the best approximation of the matrix of the original dataset $X_{T\times N}$, with *T: Time* and *N: Banks*, in the least-squares sense, that minimize the following criteria:
+
+
+<div>
+$$ 
+\vartheta = || Χ-M-FU'||^2 = \sum_{t=1}^{T}{\sum_{n=1}^{N}\left(X_{tn}-m_n-\sum_{s=1}^{S}{F_{ts}U_{ns}}\right)^2} 
+$$
+</div>
+
+where `\\(M\\)` is a matrix of size `\\(T\times K\\)` with each row equal to `\\({(m}_1,\ \ldots,\ m_N)\\)`, i.e., the vector with the mean of each variable.
+
+]
+
+
+???
+
+•	Diapositiva 14 – regularized PCA
+
+In the estimation of the banking profitability factors Ft, we use the method of regularized principal components, due to Josse & Husson (2012)(twenty-twelve). The objective is to determine a subspace that reduces the distances between individuals and their projections in this subspace.
+
+
+---
+
+
+<div class="my-logo-right"></div>
+
+# Interpreting the factors
+
+<br>
+
+.font120[
+We used FRED-QD database comprising of 248 macroeconomic series, we denote each series by $MS_k,$ where $k\ =1,\ \ldots,\ 248$. The objective is to establish, based on the marginal determination coefficient of exahustive regressions, the top 5 macroeconomic variables that best explain each banking factor $i$. We then have 248 values of $R_{Adj}^2$ extracted from each $k$ model
+
+<br>
+
+$$ {\hat{F}}_{Bank_p}=\ \gamma_0+\ \gamma_1MS_k+u_k $$
+]
+
+
+???
+
+•	Diapositiva 15 – interpreting Factors
+
+We go a step further by considering the interpretation of our statistical factors, estimated by regularized principal components analysis (PCA). 
+
+Our approach consists of the following two steps. 
+First, we collect quarterly series of US economic activity recently assembled by McCracken & Ng (2021)(twenty-twenty one), which together constitute a complete picture of real markets, financial markets and prices in the US. 
+
+Then, we relate each of our statistical factors to each series in the set of big data macro variables and select the heaviest loading series among them, using marginal R-squared statistics from exhaustive and separated regressions and thereby matching our statistical factors with well-known economic series that can be easily interpreted.
+
+
+
+---
+
+
+<div class="my-logo-right"></div>
+
+# Data
+
+
+<br>
+
+.font120[
+Our data for US banking profitability and the macroeconomic environment come from two different sources. 
+]
+
+
+.pull-left[
+
+.font110[
+> `Banking information:`
+
+- `r icon::fa("check-square", animate = "vertical")` **ROE** (return on equity) - (N = 118 Banks) - (Quarterly 2001Q1 - 2020Q4)
+- `r icon::fa("check-square", animate = "vertical")` **ROA** (return on assets) - (N = 111 Banks) - (Quarterly 2001Q1 - 2020Q4)
+- `r icon::fa("check-square", animate = "vertical")` **EBITDA margin** - (N = 241 Banks) - (Annually 2001 - 2020)
+]
+
+]
+
+.pull-right[
+
+.font110[
+
+> `Macroeconomic information:`
+
+- `r icon::fa("check-square", animate = "vertical")` The FRED-QD database assembled by McCracken & Ng (2021) was used. 
+- `r icon::fa("check-square", animate = "vertical")` This big data set is publicly available and maintained by the Federal Reserve of St. Louis, through FRED service. 
+- `r icon::fa("check-square", animate = "vertical")` It consists of 248 series with quarterly from 1959Q1.
+
+]
+
+
+]
+
+???
+
+•	Diapositiva 16 – DATA
+
+Our data for US banking profitability and the macroeconomic environment come from two different sources.
+
+Banking information: We use three financial indicators to measure profitability ROE, ROA and EBITDA margin. Each indicator in an individual analysis to observe the consistency of the results.
+
+In the case of return on equity, we use 118 (one hundred eighteen) banks with quarterly series from 2001(Two thousand one) to 2020(twenty-twenty). In the case of return on assets, there are 111(one hundred eleven) banks. For EBITDA margin we use 241(two hundred forty-one) banks with annual information. We mainly focus(FOUKOAS) on the return on equity results to do the general analysis. These indicators come from REFINITIV.
+
+Regarding the macroeconomic information, we use the FRED-QD database consolidated by McCracken & Ng (2021)(twenty twenty-one), which contains 248(two hundred forty-eight) series.
+
+
+---
+
+name: Results
+
+class: inverse, mline, center, middle
+<div class="my-logo-center"></div>
+
+
+
+# Results
+
+???
+
+RESULTSSS
+
+---
+
+
+<div class="my-logo-right"></div>
+
+# Banking profitability
+
+<br>
+
+.panelset[
+.panel[.panel-name[All]
+
+
+```{r echo=FALSE, message=FALSE, warning=FALSE, out.height= "100%", out.width="100%"  }
+
+library(datapasta)
+library(gt)
+library(tidyverse)
+library(glue)
+
+
+T2<-tibble::tribble(
+ ~`Banking Factor`,                ~ROE,                ~ROA,      ~EBITDA,
+              "F1",              46.3,               54.7,              38.3,
+              "F2",              11.6,                7.9,              20.1,
+              "F3",               5.5,                5.6,               9.1,
+           "Total",              63.4,               68.2,              67.5
+  )
+
+
+
+
+T2 %>% 
+  gt() %>% 
+  tab_spanner(
+    label = md("Exp Variance (%)"),
+    columns = 2:4) %>% 
+  tab_header(
+    title = md("**Summary of variance explained by banking factors <br> according to market cap and financial indicator.**")
+  ) %>% 
+  tab_source_note(
+    source_note = "Note: F1, F2, F3, specifically denote the estimated banking factors by the (regularized) iterative PCA algorithm. N denotes the number of banks used in each type of financial indicator. T denotes the number of periods in the sample, with Q: Quarter Y: Years."
+  )
+
+
+
+```
+
+]
+
+
+.panel[.panel-name[Small]
+
+
+```{r echo=FALSE, message=FALSE, warning=FALSE, out.height= "100%", out.width="100%"  }
+
+library(datapasta)
+library(gt)
+library(tidyverse)
+library(glue)
+
+
+T2<-tibble::tribble(
+ ~`Banking Factor`,                ~ROE,                ~ROA,      ~EBITDA,
+              "F1",              38.6, 47.7, 34.6,
+              "F2",              12.1, 10.2, 19.6,
+              "F3",                7.2,  6.4, 10.8,
+           "Total",              57.9, 64.3,   65
+  )
+
+
+
+
+T2 %>% 
+  gt() %>% 
+  tab_spanner(
+    label = md("Exp Variance (%)"),
+    columns = 2:4) %>% 
+  tab_header(
+    title = md("**Summary of variance explained by banking factors <br> according to market cap and financial indicator.**")
+  ) %>% 
+  tab_source_note(
+    source_note = "Note: F1, F2, F3, specifically denote the estimated banking factors by the (regularized) iterative PCA algorithm. N denotes the number of banks used in each type of financial indicator. T denotes the number of periods in the sample, with Q: Quarter Y: Years."
+  )
+
+
+
+```
+
+]
+
+
+
+.panel[.panel-name[Medium]
+
+
+```{r echo=FALSE, message=FALSE, warning=FALSE, out.height= "100%", out.width="100%"  }
+
+library(datapasta)
+library(gt)
+library(tidyverse)
+library(glue)
+
+
+T2<-tibble::tribble(
+ ~`Banking Factor`,                ~ROE,                ~ROA,      ~EBITDA,
+              "F1",              52.4,   58, 39.6,
+              "F2",               12.2,  8.2, 17.8,
+              "F3",               5.4,  5.4, 10.9,
+           "Total",              70, 71.6, 68.3
+  )
+
+
+
+T2 %>% 
+  gt() %>% 
+  tab_spanner(
+    label = md("Exp Variance (%)"),
+    columns = 2:4) %>% 
+  tab_header(
+    title = md("**Summary of variance explained by banking factors <br> according to market cap and financial indicator.**")
+  ) %>% 
+  tab_source_note(
+    source_note = "Note: F1, F2, F3, specifically denote the estimated banking factors by the (regularized) iterative PCA algorithm. N denotes the number of banks used in each type of financial indicator. T denotes the number of periods in the sample, with Q: Quarter Y: Years."
+  )
+
+
+
+```
+
+]
+
+
+.panel[.panel-name[Large]
+
+
+```{r echo=FALSE, message=FALSE, warning=FALSE, out.height= "100%", out.width="100%"  }
+
+library(datapasta)
+library(gt)
+library(tidyverse)
+library(glue)
+
+
+T2<-tibble::tribble(
+ ~`Banking Factor`,                ~ROE,                ~ROA,      ~EBITDA,
+              "F1",             50.8, 61.7, 48.7,
+              "F2",              11.5,  7.5, 19.7,
+              "F3",              6.7,  5.2,  6.6,
+           "Total",               69, 74.4,   75
+  )
+
+
+
+T2 %>% 
+  gt() %>% 
+  tab_spanner(
+    label = md("Exp Variance (%)"),
+    columns = 2:4) %>% 
+  tab_header(
+    title = md("**Summary of variance explained by banking factors <br> according to market cap and financial indicator.**")
+  ) %>% 
+  tab_source_note(
+    source_note = "Note: F1, F2, F3, specifically denote the estimated banking factors by the (regularized) iterative PCA algorithm. N denotes the number of banks used in each type of financial indicator. T denotes the number of periods in the sample, with Q: Quarter Y: Years."
+  )
+
+
+
+```
+
+]
+
+
+]
+
+
+???
+
+
+•	Diapositiva 17 - 18 – Results Table
+
+The table shows the percentage of the total variance in the panel for each of our three profitability indicators, ROE, ROA, EBITDA, explained by the three estimated bank profitability factors.
+
+We observe a high percentage of the total variation of the system explained by the three factors selected in the first step, that is, between 63(Sixty-three)% and 68(Sixty-eight)% for the three profitability indicators.
+
+This result is robust when using ROE, ROA, and even EBITDA margin, which is sampled at a different frequency.. and... consists of a cross-sectional sample size.. more than twice, that of ROE and ROA. 
+
+However, the percentage of explained variance increases for large banks compared to small ones.
+
+(Cambiar pestañas)
+
+- In the case of small banks, we have a percentage of explained variance between 57(fifty-seven)% and 65(Sixty-five)%.,,, 
+
+- For medium banks we have between 68(sixty-eigth)% and 71(seventy-one)%,,, 
+
+- and finally, for large banks we have of explained variance between 69(sixty-nine)% and 75(seventy-five)%.
+
+The fact, that all three factors explain similar percentages of the total variance for ROE and ROA, rather than EBIDTA, confirms our number of selected factors.
+
+
+---
+
+
+
+<div class="my-logo-right"></div>
+
+# Banking Factors
+
+
+.panelset[
+.panel[.panel-name[ROE]
+
+```{r echo=FALSE, message=FALSE, warning=FALSE, out.height= "100%", out.width="100%"  }
+
+Factores.melt_ROE<-readRDS("RDS/Factores.melt_ROE.rds")
+
+# Plot de Factores Banking
+library(ggplot2)
+library(plotly)
+library(dplyr)
+
+theme_set(theme_bw())
+
+ROE<-ggplot(Factores.melt_ROE, aes(x = Date, y = value)) + 
+  geom_line(aes(color = Size, linetype = Size)) + 
+  facet_grid(variable ~ .  ) +
+  scale_colour_brewer(type = "div") +
+  labs(y="Banking Factors")+
+  theme(legend.position = "bottom")
+
+
+ggplotly(ROE) %>% 
+  layout(legend = list(orientation = "h", x = 0.4, y = -0.2))
+
+
+```
+
+]
+
+.panel[.panel-name[ROA]
+
+```{r echo=FALSE, message=FALSE, warning=FALSE, out.height= "100%", out.width="100%"  }
+
+Factores.melt_ROE<-readRDS("RDS/Factores.melt_ROA.rds")
+
+# Plot de Factores Banking
+library(ggplot2)
+library(plotly)
+library(dplyr)
+
+theme_set(theme_bw())
+
+ROE<-ggplot(Factores.melt_ROE, aes(x = Date, y = value)) + 
+  geom_line(aes(color = Size, linetype = Size)) + 
+  facet_grid(variable ~ .  ) +
+  scale_colour_brewer(type = "div") +
+  labs(y="Banking Factors")+
+  theme(legend.position = "bottom")
+
+
+ggplotly(ROE) %>% 
+  layout(legend = list(orientation = "h", x = 0.4, y = -0.2))
+
+
+```
+
+]
+
+.panel[.panel-name[EBITDA]
+
+```{r echo=FALSE, message=FALSE, warning=FALSE, out.height= "100%", out.width="100%"  }
+
+Factores.melt_ROE<-readRDS("RDS/Factores.melt_EBITDA.rds")
+
+# Plot de Factores Banking
+library(ggplot2)
+library(plotly)
+library(dplyr)
+
+theme_set(theme_bw())
+
+ROE<-ggplot(Factores.melt_ROE, aes(x = Date, y = value)) + 
+  geom_line(aes(color = Size, linetype = Size)) + 
+  facet_grid(variable ~ .  ) +
+  scale_colour_brewer(type = "div") +
+  labs(y="Banking Factors")+
+  theme(legend.position = "bottom")
+
+
+ggplotly(ROE) %>% 
+  layout(legend = list(orientation = "h", x = 0.4, y = -0.2))
+
+
+```
+
+]
+
+
+.panel[.panel-name[FRED]
+
+```{r echo=FALSE, message=FALSE, warning=FALSE, out.height= "100%", out.width="100%"  }
+
+Fact.Macro.melt<-readRDS("RDS/Fred.rds")
+
+library(ggplot2)
+theme_set(theme_bw())
+
+Fred.Fac<-ggplot(Fact.Macro.melt, aes(x = Date, y = value)) + 
+  geom_line(aes(color = `FRED-QD Factors Estimates`, linetype= `FRED-QD Factors Estimates`)) + 
+  scale_colour_brewer(palette = "Dark2") +
+  labs(y="Macroeconomics Factors")
+
+
+ggplotly(Fred.Fac) %>% 
+  layout(legend = list(orientation = "h", x = 0.4, y = -0.2))
+
+
+```
+
+]
+
+
+]
+
+
+???
+
+•	Diapositiva 19 – Results Figure
+
+(señalar las lineas.. hacer click)
+
+This figure shows the behavior of the estimated factors including all banks, this is the solid line. The behavior of the factors estimated by bank size is also shown, these are the dashed lines.
+
+We can see for each financial indicator how our factors manage to capture the subprime and covid-19 (nineteen) crises.
+
+This behavior can be captured both in the factors from the ROE.
+(Cambiar) In the same way in the ROA, (señalar crisis)
+(Cambiar) and.. of course the EBITDA also captures the crises.
+
+
+(Cambiar) We also estimate macroeconomic factors from the set of FRED-QD series. Although these estimated factors capture crises, the trend does not resemble banking factors.
+
+
+
+---
+
+<div class="my-logo-right"></div>
+
+# Correlations
+
+.pull-left[
+
+```{r echo=FALSE, out.width = "90%" }
+knitr::include_graphics("img/Corr4.png")
+```
+
+
+]
+
+
+.pull-right[
+  
+.font120[
+
+`r icon::fa("align-justify", animate = "passing")` Our banking factors do not perfectly (or even closely) match three additional factors estimated using the macroeconomic series related to economic activity, prices and financial conditions.
+    
+<br>
+      
+`r icon::fa("align-justify", animate = "passing")` Otherwise, the two sets of factors depict largely independent trajectories, which highlights the advantages of our approach against the alternative path of identifying the market factors directly from the set of macroeconomic series.
+
+]
+
+]
+
+???
+
+•	Diapositiva 20 – Results Correlation
+
+Interestingly, our banking factors do not perfectly (or even closely) match three additional factors estimated using the macroeconomic series related to economic activity, prices and financial conditions. 
+
+The largest correlation (in magnitude) among the banking and macroeconomic factors is -0.44 (mi(ai)nus zero point forty-four), appearing between the second banking factor and the third macroeconomic factor. 
+
+Otherwise, the two sets of factors depict largely independent trajectories, which highlights the advantages of our approach against the alternative path of identifying the market factors directly from the set of macroeconomic series.
+
+
+---
+
+
+<div class="my-logo-right"></div>
+
+# Banking factors using ROE
+
+
+.panelset[
+.panel[.panel-name[Factor 1]
+
+
+`r anicon::faa("angle-double-right", animate = "passing")` **Factor 1:** `Level of household indebtedness and economic activity`
+
+
+```{r echo=FALSE, message=FALSE, warning=FALSE, out.height= "100%", out.width="100%"  }
+
+library(datapasta)
+library(dplyr)
+library(gt)
+
+
+T3<-tibble::tribble(
+                      ~Group,                                                                                                        ~Description,  ~R2,
+  "Household Balance Sheets", "Real Total Liabilities of Households and Nonprofit Organizations (Billions of 2012 Dollars), deflated by Core PCE", 0.66,
+     "Industrial Production",                                                   "Capacity Utilization: Manufacturing (SIC) (Percent of Capacity)", 0.52,
+     "Industrial Production",                                                        "Capacity Utilization: Total Industry (Percent of Capacity)", 0.45,
+          "Money and Credit",                "Real Real Estate Loans, All Commercial Banks (Billions of 2012 U.S. Dollars), deflated by Core PCE", 0.39,
+          "Money and Credit",   "Total Real Revolving Credit Owned and Securitized, Outstanding (Billions of 2012 Dollars), deflated by Core PCE", 0.34
+  )
+
+
+T3 %>% 
+  gt() %>% 
+ tab_header(
+    title = md("**Top 5 of FRED’s macroeconomic variables that best explain banking factors using ROE.**")
+  ) %>% 
+  tab_source_note(
+   source_note = md("**Note:** This table presents the macroeconomic series of the FRED-QD most correlated with each of the banking factors estimated according to the *R2* criterion. Each of the series is classified into a group determined by Stock & Watson (2012)."
+  ))
+
+
+```
+
+]
+
+
+.panel[.panel-name[Factor 2]
+
+`r anicon::faa("angle-double-right", animate = "passing")` **Factor 2:** `Household income and employment`
+
+```{r echo=FALSE, message=FALSE, warning=FALSE, out.height= "100%", out.width="100%"  }
+
+library(datapasta)
+library(dplyr)
+library(gt)
+
+
+T3<-tibble::tribble(
+                         ~Group,                                                                                           ~Description,  ~R2,
+  "Employment and Unemployment",               "Average Weekly Hours of Production and Nonsupervisory Employees: Manufacturing (Hours)", 0.67,
+  "Employment and Unemployment",                                                                                    "Help-Wanted Index", 0.59,
+     "Household Balance Sheets", "Net Worth of Households and Nonprofit Organizations Relative to Disposable Personal Income (Percent)", 0.34,
+  "Employment and Unemployment",                                           "All Employees: Financial Activities (Thousands of Persons)", 0.23,
+  "Employment and Unemployment",                                                   "All Employees: Construction (Thousands of Persons)", 0.23
+  )
+
+
+T3 %>% 
+  gt() %>% 
+ tab_header(
+    title = md("**Top 5 of FRED’s macroeconomic variables that best explain banking factors using ROE.**")
+  ) %>% 
+  tab_source_note(
+   source_note = md("**Note:** This table presents the macroeconomic series of the FRED-QD most correlated with each of the banking factors estimated according to the *R2* criterion. Each of the series is classified into a group determined by Stock & Watson (2012)."
+  ))
+
+
+```
+
+]
+
+
+
+.panel[.panel-name[Factor 3]
+
+`r anicon::faa("angle-double-right", animate = "passing")` **Factor 3:** `Companies’ indebtedness and government debt.`
+
+
+```{r echo=FALSE, message=FALSE, warning=FALSE, out.height= "100%", out.width="100%"  }
+
+library(datapasta)
+library(dplyr)
+library(gt)
+
+
+T3<-tibble::tribble(
+                          ~Group,                                                                                                                                           ~Description,  ~R2,
+                "Interest Rates",                                                                     "3-Month Commercial Paper Minus 3-Month Treasury Bill, secondary market (Percent)", 0.33,
+  "Non-Household Balance Sheets",                                                        "Nonfinancial Noncorporate Business Sector Liabilities to Disposable Business Income (Percent)", 0.31,
+              "Money and Credit",           "FRB Senior Loans Officer Opions. Net Percentage of Domestic Respondents Reporting Increased Willingness to <br> Make Consumer Installment Loans", 0.31,
+  "Non-Household Balance Sheets", "Real Nonfinancial Noncorporate Business Sector Liabilities (Billions of 2012 Dollars), Deflated by Implicit Price <br> Deflator for Business Sector IPDBS",  0.3,
+                          "NIPA",                                      "Real government state and local consumption expenditures (Billions of Chained 2012 Dollars), deflated using PCE", 0.27
+  )
+
+
+
+T3 %>% 
+  gt() %>% 
+  cols_width(
+    Description ~ px(50)
+  ) %>% 
+ tab_header(
+    title = md("**Top 5 of FRED’s macroeconomic variables that best explain banking factors using ROE.**")
+  ) %>% 
+  tab_source_note(
+    source_note = md("**Note:** This table presents the macroeconomic series of the FRED-QD most correlated with each of the banking factors estimated according to the *R2* criterion. Each of the series is classified into a group determined by Stock & Watson (2012)."
+  ))
+
+
+```
+
+]
+]
+
+
+???
+
+•	Diapositiva 21 – Results Tables Factors
+
+Now, the interpretability..
+
+Our statistical factors are estimated outside the macro system, that is, from our banking profitability data. 
+
+Therefore, there is no a prior reason to expect a high correlation between the factors and the individual series. 
+Bearing this in mind, we are still able to identify what series drive the dynamics of each banking profitability factor, which makes our results solid and insightful. 
+
+
+- The first factor is related to the financial burden of households and economic activity: We have variables such as: Real total Liabilities of households, Industrial production such as: Manufacturing and Total industry, and Money and Credit variables.
+
+(Cambiar)
+- the second factor is associated with household income and, hence, employment, With variables like: Average weekly hours of production and nonsupervisory employees and Help-Wanted Index.
+
+(Cambiar)
+- and the third factor is related to commercial loans, that is, Companies’ indebtedness and government debt.
+
+
+
+
+---
+
+<div class="my-logo-right"></div>
+
+# Explanatory power
+
+<br>
+
+.pull-left[
+
+.font120[
+> We can provide a ranking of banks according to their sensitivity to the three underlying market forces. 
+
+<br><br>
+
+>The `explanatory power` of our factor model lies between a minimum of 6% and a maximum of 93%, with an interquartile range of 43%-77%. 
+]
+
+]
+
+.pull-right[
+
+```{r echo=FALSE, message=FALSE, warning=FALSE,  fig.height = 6 }
+
+ROA.melt<-readRDS("RDS/ROA.melt.rds")
+
+library(ggridges)
+library(ggplot2)
+baser2<-ROA.melt %>% 
+  dplyr::filter(variable == "R2.ROA" & Met =="All")
+graf4.1<-ggplot(baser2,aes(x = value, y = Met, fill = stat(x))) +
+  geom_density_ridges_gradient() +
+  scale_fill_viridis_c(name = expression(R^2), option = "D") +
+  coord_cartesian(clip = "off") + # Para evitar el recorte
+  theme_minimal()+
+  lims(x=c(-0.4, 1.3))+
+  expand_limits(x=c(-0.4,1.3))+
+ labs(y="Density",x=" ")+
+  theme(axis.text.x = element_text(size=15))+
+  theme(axis.title.y = element_text(size=15))
+
+
+graf4.1
+
+```
+
+]
+
+
+???
+
+•	Diapositiva 22 – Explanatory Power
+
+We show the kernel of the probability distribution of the adjusted R-squared. In this way, we can evaluate the individual adjustment of the banking profitability dynamic factor model in the cross-section of banks. 
+
+According to Figure is greater than 64(sixty-four)% for more than half of the banks... and above 77(seventy-seven)% for more than a quarter of the banks. This shows a high adjustment of the dynamic factor model for the panel of financial institutions.
+
+
+
+---
+
+
+
+<div class="my-logo-right"></div>
+
+# Ranking
+
+
+.panelset[
+.panel[.panel-name[Factor 1]
+
+
+.pull-left[
+
+
+```{r echo=FALSE, message=FALSE, warning=FALSE, out.height= "100%", out.width="100%"  }
+
+library(datapasta)
+library(dplyr)
+library(gt)
+
+
+T4<-tibble::tribble(
+            ~" ",                        ~Bank,  ~B1,
+emo::ji("one"),            "Central Pacific Financial Corp", 2.27,
+emo::ji("two"),                    "Synovus Financial Corp", 2.07,
+emo::ji("three"),              "United Community Banks Inc", 1.74,
+emo::ji("four"),  "Seacoast Banking Corporation of Florida",  1.6,
+emo::ji("five"),                         "First Busey Corp", 1.49,
+emo::ji("six"),                               "Popular Inc",  1.4,
+emo::ji("seven"),               "Huntington Bancshares Inc", 1.39,
+emo::ji("eight"),                  "Old Second Bancorp Inc", 1.31,
+emo::ji("nine"),           "First Horizon Corp (Tennessee)", 1.17,
+emo::ji("keycap_10"),                    "Regions Financial Corp", 1.17
+  )
+
+
+
+T4 %>% 
+  gt() %>% 
+ tab_header(
+    title = md("**Top ranking of banks**")
+  )
+
+
+```
+
+
+
+]
+
+
+.pull-right[
+
+```{r echo=FALSE, message=FALSE, warning=FALSE, out.height= "100%", out.width="100%"  }
+
+
+
+library(datapasta)
+library(dplyr)
+library(gt)
+
+
+T5<-tibble::tribble(
+  ~" ",  ~Bank,  ~B1,
+  c(emo::ji("red_triangle_pointed_down"),emo::ji("one")),          "German American Bancorp Inc", -0.22,
+  c(emo::ji("red_triangle_pointed_down"),emo::ji("two")),              "UMB Financial Corp", -0.11,
+  c(emo::ji("red_triangle_pointed_down"),emo::ji("three")),        "Southside Bancshares Inc", -0.08,
+  c(emo::ji("red_triangle_pointed_down"),emo::ji("four")),           "Brookline Bancorp Inc", -0.04,
+  c(emo::ji("red_triangle_pointed_down"),emo::ji("five")),            "Republic Bancorp Inc",  0.06,
+  c(emo::ji("red_triangle_pointed_down"),emo::ji("six")),               "Eagle Bancorp Inc",  0.08,
+  c(emo::ji("red_triangle_pointed_down"),emo::ji("seven")),            "First Financial Corp",  0.08,
+  c(emo::ji("red_triangle_pointed_down"),emo::ji("eight")),  "First Financial Bankshares Inc",   0.1,
+  c(emo::ji("red_triangle_pointed_down"),emo::ji("nine")),       "Community Bank System Inc",  0.11,
+  c(emo::ji("red_triangle_pointed_down"),emo::ji("keycap_10")),         "First Financial Bancorp",  0.13
+)
+
+
+T5 %>% 
+  gt() %>% 
+ tab_header(
+    title = md("**Lower ranking of banks**")
+  )
+
+
+```
+
+
+]
+
+
+]
+
+
+
+
+
+.panel[.panel-name[Factor 2]
+
+.pull-left[
+
+```{r echo=FALSE, message=FALSE, warning=FALSE, out.height= "100%", out.width="100%"  }
+
+library(datapasta)
+library(dplyr)
+library(gt)
+
+
+T6<-tibble::tribble(
+            ~" ",                        ~Bank,  ~B1,
+emo::ji("one"),                "Central Pacific Financial Corp", 3.33,
+emo::ji("two"),                           "Synovus Financial Corp", 2.12,
+emo::ji("three"),                      "Huntington Bancshares Inc",    2,
+emo::ji("four"),         "Seacoast Banking Corporation of Florida", 1.94,
+emo::ji("five"),                      "United Community Banks Inc", 1.74,
+emo::ji("six"),                                      "Popular Inc", 1.59,
+emo::ji("seven"),                               "First Busey Corp", 1.54,
+emo::ji("eight"),                         "Regions Financial Corp", 1.45,
+emo::ji("nine"),                                     "Banner Corp", 1.44,
+emo::ji("keycap_10"),                 "Financial Institutions Inc", 1.16
+  )
+
+
+
+T6 %>% 
+  gt() %>% 
+ tab_header(
+    title = md("**Top ranking of banks**")
+  )
+
+
+```
+
+]
+
+
+.pull-right[
+
+```{r echo=FALSE, message=FALSE, warning=FALSE, out.height= "100%", out.width="100%"  }
+
+
+
+library(datapasta)
+library(dplyr)
+library(gt)
+
+
+T7<-tibble::tribble(
+  ~" ",  ~Bank,  ~B1,
+  c(emo::ji("red_triangle_pointed_down"),emo::ji("one")),            "Westamerica Bancorp", -1.45,  
+  c(emo::ji("red_triangle_pointed_down"),emo::ji("two")),           "Valley National Bancorp", -0.85,  
+  c(emo::ji("red_triangle_pointed_down"),emo::ji("three")),        "Southside Bancshares Inc", -0.82,  
+  c(emo::ji("red_triangle_pointed_down"),emo::ji("four")),             "Republic Bancorp Inc", -0.74,  
+  c(emo::ji("red_triangle_pointed_down"),emo::ji("five")),                   "Sierra Bancorp", -0.72,  
+  c(emo::ji("red_triangle_pointed_down"),emo::ji("six")),                      "Bank Ozk", -0.67,
+  c(emo::ji("red_triangle_pointed_down"),emo::ji("seven")),             "Bank of Hawaii Corp", -0.64,  
+  c(emo::ji("red_triangle_pointed_down"),emo::ji("eight")),       "American River Bankshares",  -0.6,  
+  c(emo::ji("red_triangle_pointed_down"),emo::ji("nine")),            "United Bankshares Inc",  -0.6,  
+  c(emo::ji("red_triangle_pointed_down"),emo::ji("keycap_10")),          "CVB Financial Corp", -0.56  
+)
+
+
+
+T7 %>% 
+  gt() %>% 
+ tab_header(
+    title = md("**Lower ranking of banks**")
+  )
+
+
+```
+
+
+]
+
+
+]
+
+
+
+
+
+
+
+.panel[.panel-name[Factor 3]
+
+.pull-left[
+
+```{r echo=FALSE, message=FALSE, warning=FALSE, out.height= "100%", out.width="100%"  }
+
+library(datapasta)
+library(dplyr)
+library(gt)
+
+
+T8<-tibble::tribble(
+            ~" ",                        ~Bank,  ~B1,
+emo::ji("one"),                             "Popular Inc", 2.38,
+emo::ji("two"),               "Huntington Bancshares Inc", 1.71,
+emo::ji("three"),                  "Republic Bancorp Inc", 1.62,
+emo::ji("four"),                       "First Busey Corp", 1.38,
+emo::ji("five"),                               "Bank Ozk", 1.29,
+emo::ji("six"),                    "Hanmi Financial Corp", 1.17,
+emo::ji("seven"),            "Financial Institutions Inc", 1.15,
+emo::ji("eight"),                         "Citigroup Inc", 1.04,
+emo::ji("nine"),         "First Horizon Corp (Tennessee)", 0.91,
+emo::ji("keycap_10"),            "Webster Financial Corp", 0.85
+  )
+
+
+
+
+T8 %>% 
+  gt() %>% 
+ tab_header(
+    title = md("**Top ranking of banks**")
+  )
+
+
+```
+
+]
+
+
+.pull-right[
+
+```{r echo=FALSE, message=FALSE, warning=FALSE, out.height= "100%", out.width="100%"  }
+
+
+
+library(datapasta)
+library(dplyr)
+library(gt)
+
+
+T9<-tibble::tribble(
+  ~" ",  ~Bank,  ~B1,
+  c(emo::ji("red_triangle_pointed_down"),emo::ji("one")),       "Central Pacific Financial Corp",  -5.3, 
+  c(emo::ji("red_triangle_pointed_down"),emo::ji("two")),               "Old Second Bancorp Inc", -5.16, 
+  c(emo::ji("red_triangle_pointed_down"),emo::ji("three")),         "United Community Banks Inc", -4.73,  
+  c(emo::ji("red_triangle_pointed_down"),emo::ji("four")),              "Synovus Financial Corp", -1.87,  
+  c(emo::ji("red_triangle_pointed_down"),emo::ji("five")),              "Heritage Commerce Corp", -1.79,  
+  c(emo::ji("red_triangle_pointed_down"),emo::ji("six")),           "Republic First Bancorp Inc", -1.01,
+  c(emo::ji("red_triangle_pointed_down"),emo::ji("seven")),                     "Sierra Bancorp", -0.91,  
+  c(emo::ji("red_triangle_pointed_down"),emo::ji("eight")),          "American River Bankshares", -0.79,  
+  c(emo::ji("red_triangle_pointed_down"),emo::ji("nine")),                 "Bank of Hawaii Corp", -0.79,  
+  c(emo::ji("red_triangle_pointed_down"),emo::ji("keycap_10")),    "Capital City Bank Group Inc", -0.74  
+)
+
+
+
+
+T9 %>% 
+  gt() %>% 
+ tab_header(
+    title = md("**Lower ranking of banks**")
+  )
+
+
+```
+
+
+]
+
+
+]
+
+
+
+]
+
+
+
+???
+
+•	Diapositiva 23 – Results Ranking
+
+We can provide a ranking of banks according to their sensitivity to the three underlying market forces.
+
+Remember, Factor 1 is associated with Level of household indebtedness and economic activity.
+That is, our first component already has an intuitive dynamic (for example, it falls during crises), we already know that the most vulnerable institutions are those with positive coefficients, that is, (upper ranking).
+
+Here, the most sensitive banks are: Central Pacific Financial Corp, Synovus Financial Corp, United Community Banks Inc (Incorporated) and these banks follow.(señalar otros bancos)
+In contrast, the least sensitive banks to the first factor are German American Bancorp Inc, UMB Financial Corp, among others.
+
+Factor 2 is associated with Household income and employment, Here the most sensitive banks are: Central Pacific Financial Corp, Synovus Financial Corp, Huntington Bancshares Inc, among others. The least sensitive banks are: Westamerica Bancorp and Valley National Bancorp.
+
+And factor 3 is associated with Companies' indebtedness and government debt. Here, the most sensitive banks are: Popular Inc, Huntington Bancshares Inc and Republic Bancorp Inc. The least sensitive banks are: Central Pacific Financial Corp and Old Second Bancorp Inc.
+
+
+
+
+---
+
+name: Conclusion
+
+class: inverse, mline, center, middle
+<div class="my-logo-center"></div>
+
+
+
+# Conclusion
+
+
+---
+
+
+<div class="my-logo-right"></div>
+
+# Conclusion
+
+
+
+.left-column[
+
+.font400[1.]
+
+<br>
+<br>
+<br>
+<br>
+<br>
+
+
+.font400[2.]
+
+]
+
+.right-column[
+.font120[
+> We estimate the number of statistical factors that underlie profitability dynamics over time for the banking industry. Three factors are enough to describe 63.40%, 68% and 67.50% of ROE, ROA and EBITDA, respectively.
+
+<br>
+
+<hr>
+
+<br>
+
+> The numbers increase according to bank size, which indicates that, as expected, the larger the bank is, the more cyclically it behaves.
+
+]
+]
+
+
+???
+
+•	Diapositiva 24 - 25 – Conclusions
+
+1)
+We estimate the number of statistical factors that underlie profitability dynamics over time for the banking industry. Three factors are enough to describe 63.40%, 68% and 67.50% of ROE, ROA and EBITDA, respectively.
+
+
+2)
+The numbers increase according to bank size, which indicates that, as expected, the larger the bank is, the more cyclically it behaves.
+
+
+---
+
+
+
+
+<div class="my-logo-right"></div>
+
+# Conclusion
+
+
+
+.left-column[
+
+.font400[3.]
+
+<br>
+<br>
+<br>
+<br>
+<br>
+
+
+.font400[4.]
+
+]
+
+.right-column[
+.font120[
+> Our results indicate that these three statistical factors are mainly related to
+ - `households’ financial burden and economic activity`
+ - `households’ income and employment` 
+ - `commercial loans`
+
+<div style="line-height:5%;">
+    <br>
+</div>
+
+
+<hr>
+
+
+<br>
+
+
+> We provide a means to monitor profitability in the banking industry from an integrative perspective by establishing rankings of the financial institutions according to their exposure (either positive or negative) to the three market forces that we identify.
+
+]
+]
+
+???
+
+•	Diapositiva 26 – Conclusions
+
+3)
+
+Our results indicate that these three statistical factors are mainly related to:
+
+- households’ financial burden and economic activity
+- households’ income and employment
+- commercial loans
+
+
+4)
+We provide a means to monitor profitability in the banking industry from an integrative perspective by establishing rankings of the financial institutions according to their exposure (either positive or negative) to the three market forces that we identify.
+
+---
+
+
+
+<div class="my-logo-right"></div>
+
+# Conclusion
+
+
+
+.left-column[
+
+<br>
+<br>
+<br>
+<br>
+<br>
+
+
+.font400[5.]
+
+
+
+]
+
+.right-column[
+
+<br>
+<br>
+<br>
+
+
+<hr>
+
+<br>
+
+.font120[
+> Given that our results seem more relevant for large banks than for small banks, it could be that for banks outside of our sample, which are even smaller, the results lack the same validity.
+
+<br>
+
+<hr>
+
+
+]
+]
+
+???
+
+•	Diapositiva 27 – Conclusions
+
+and.. finally...
+
+Given that our results seem more relevant for large banks than for small banks, it could be that for banks outside of our sample, which are even smaller, the results lack the same validity.
+
+
+
+
+---
+
+
+
+<div class="my-logo-right"></div>
+
+# References
+
+
+`r anicon::faa("book", animate = "passing")` Alessandri, P., & Nelson, B. D. (2015). Simple Banking : Profitability and the Yield Curve. Journal of Money, Credit and Banking, 47(1). https://doi.org/10.1111/jmcb.12172
+
+
+`r anicon::faa("book", animate = "passing")` Bai, J., & Ng, S. (2002). Determining the number of factors in approximate factor models. Econometrica, 70(1), 191–221. https://doi.org/10.1111/1468-0262.00273
+
+
+`r anicon::faa("book", animate = "passing")` Bai, J., & Ng, S. (2008). Large Dimensional Factor Analysis. Foundations and Trends R in Econometrics, 3(2), 89–163. https://doi.org/10.1561/0800000002
+
+
+`r anicon::faa("book", animate = "passing")` Borio, C., Gambacorta, L., & Hofmann, B. (2017). The influence of monetary policy on bank profitability. International Finance, 20, 48–63. https://doi.org/10.1111/infi.12104
+
+
+`r anicon::faa("book", animate = "passing")` Davydov, D., Vähämaa, S., & Yasar, S. (2021). Bank liquidity creation and systemic risk. Journal of Banking & Finance, 123, 106031. https://doi.org/https://doi.org/10.1016/j.jbankfin.2020.106031
+
+
+`r anicon::faa("book", animate = "passing")` Detragiache, B. E., Tressel, T., & Turk-ariss, R. (2018). Where Have All the Profits Gone? European Bank Profitability Over the Financial Cycle. International Monetary Fund Working Paper 18/99.
+
+
+`r anicon::faa("book", animate = "passing")` Duan, Y., & Niu, J. (2020). Liquidity creation and bank profitability. The North American Journal of Economics and Finance, 54, 101250. https://doi.org/https://doi.org/10.1016/j.najef.2020.101250
+
+
+
+???
+
+•	Diapositiva 28 – 29 - 30 – References
+
+Here, I share the references
+
+
+
+
+---
+
+<div class="my-logo-right"></div>
+
+# References
+
+
+`r anicon::faa("book", animate = "passing")` Evans, J. J., & Haq, M. (2021). Does bank capital reduce liquidity creation? Global Finance Journal, 100640. https://doi.org/https://doi.org/10.1016/j.gfj.2021.100640
+
+
+`r anicon::faa("book", animate = "passing")` Fernandes, G., Mendes, L. dos S., & Leite, R. de O. (2021). Cash holdings and profitability of banks in developed and emerging markets. International Review of Economics & Finance, 71, 880–895. https://doi.org/https://doi.org/10.1016/j.iref.2020.10.018
+
+
+`r anicon::faa("book", animate = "passing")` Josse, J., & Husson, F. (2012). Handling missing values in exploratory multivariate data analysis methods. Journal de La Société Française de Statistique, 153(2), 79-99–99.
+
+
+`r anicon::faa("book", animate = "passing")` Kanas, A., Vasiliou, D., & Eriotis, N. (2012). Revisiting bank profitability: A semi-parametric approach. Journal of International Financial Markets, Institutions and Money, 22(4), 990–1005. https://doi.org/https://doi.org/10.1016/j.intfin.2011.10.003
+
+
+`r anicon::faa("book", animate = "passing")` Kumar, V., Thrikawala, S., & Acharya, S. (2021). Financial inclusion and bank profitability: Evidence from a developed market. Global Finance Journal, 100609. https://doi.org/https://doi.org/10.1016/j.gfj.2021.100609
+
+
+`r anicon::faa("book", animate = "passing")` Le, T. D. Q., & Ngo, T. (2020). The determinants of bank profitability: A cross-country analysis. Central Bank Review, 20(2), 65–73. https://doi.org/https://doi.org/10.1016/j.cbrev.2020.04.001
+
+
+---
+
+<div class="my-logo-right"></div>
+
+# References
+
+
+`r anicon::faa("book", animate = "passing")` Martins, A. M., Serra, A. P., & Stevenson, S. (2019). Determinants of real estate bank profitability. Research in International Business and Finance, 49, 282–300. https://doi.org/https://doi.org/10.1016/j.ribaf.2019.04.004
+
+
+`r anicon::faa("book", animate = "passing")` McCracken, M. W., & Ng, S. (2021). FRED-QD: A Quarterly Database for Macroeconomic Research. Review, 103(1). https://doi.org/10.20955/r.103.1-44
+
+
+
+`r anicon::faa("book", animate = "passing")` Molyneux, P., Reghezza, A., & Xie, R. (2019). Bank margins and profits in a world of negative rates. Journal of Banking & Finance, 107, 105613. https://doi.org/https://doi.org/10.1016/j.jbankfin.2019.105613
+
+
+
+---
+
+
+class: inverse, mline, center, bottom
+
+<div class="my-logo-center"></div>
+
+
+# Thanks !!!
+
+<br>
+<br>
+
+
+
+
+`r anicon::faa("envelope", animate = "passing")` orlando.joaqui@correounivalle.edu.co .font140[**|**] `r anicon::faa("envelope", animate = "passing")` diego.manotas@correounivalle.edu.co .font140[**|**] `r anicon::faa("envelope", animate = "passing")` juribeg@uoc.edu
+
+<br>
+<br>
+<br>
+<br>
+
+???
+
+•	Diapositiva 31 – Thanks
+
+Thank you very much for your attention. Again, I apologize for my imperfect pronunciation.
+
+
+
+
