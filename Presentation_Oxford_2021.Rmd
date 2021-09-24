@@ -484,7 +484,7 @@ F is the vector of common factors and e is the idiosyncratic component.
 <br>
 
 .font120[
-The number of optimal factors $\hat{k}$ is obtained from the estimation of the corresponding factor loadings that accompany the observed factors, which can be consistently estimated from $\hat{k}=\arg{{min}_{0\le k\le k m a x\ }PC(k)}$ with $r\le kmax$. Let:
+The number of optimal factors $\hat{k}$ is obtained from the estimation of the corresponding factor loadings that accompany the observed factors, which can be consistently estimated from $\hat{k}=\arg{{\min}_{0\le k\le k m a x\ }PC(k)}$ with $r\le kmax$. Let:
 
 <div style="line-height:5%;">
     <br>
