@@ -39,6 +39,7 @@ options(htmltools.dir.version = FALSE)
 
 ```{r xaringan-panelset, echo=FALSE}
 xaringanExtra::use_panelset()
+xaringanExtra::use_share_again()
 ```
 
 
