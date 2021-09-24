@@ -454,12 +454,12 @@ We provide a ranking of banks regarding the sensitivity of our estimated factors
 <br>
 
 .font120[
-We adapt our exposition form `Bai & Ng (2002)` and `Bai & Ng (2008)`. Let `\\(y_{it}\\)` be the observed profitability data (either ROE, ROA, and EBITDA) for the i-th unit of the cross-section (i.e., bank) at time t, for `\\(i=1,\ldots,N\\)` and `\\(t=1,\ldots,T.\\)` Consider the following model:
+We adapt our exposition form `Bai & Ng (2002)` and `Bai & Ng (2008)`. Let $y_{it}$ be the observed profitability data (either ROE, ROA, and EBITDA) for the i-th unit of the cross-section (i.e., bank) at time t, for `\\(i=1,\ldots,N\\)` and `\\(t=1,\ldots,T.\\)` Consider the following model:
 
 
 $$y_{it}=\lambda_i^\prime\ F_t+e_{it}$$
 
-\\[y_{it}=C_{it}+e_{it},\\]
+$$y_{it}=C_{it}+e_{it},$$
 
 
 
