@@ -1000,7 +1000,7 @@ This behavior can be captured both in the factors from the ROE.
 .pull-left[
 
 ```{r echo=FALSE, out.width = "90%" }
-knitr::include_graphics("img/Corr4.PNG")
+knitr::include_graphics("img/Corr4.png")
 ```
 
 
